@@ -1,0 +1,10 @@
+Settings:
+  prefix: "&f[ &6DEM &f] "
+
+  motd1: "<prefix>"
+  motd2: "<prefix>"
+
+  maxPlayers: 20
+
+  joinMessage: "<prefix> <player> joined the game"
+  quitMessage: "<prefix> <player> left the game"
