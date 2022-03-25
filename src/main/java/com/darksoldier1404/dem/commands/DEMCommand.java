@@ -30,7 +30,6 @@ public class DEMCommand implements CommandExecutor, TabCompleter {
             sender.sendMessage(plugin.prefix + "/dem quit <내용> - 플레이어 퇴장 메시지를 설정합니다.");
             sender.sendMessage(plugin.prefix + "/dem motd1 <내용> - 서버 리스트 첫번째 메시지를 설정합니다.");
             sender.sendMessage(plugin.prefix + "/dem motd2 <내용> - 서버 리스트 두번째 메시지를 설정합니다.");
-            sender.sendMessage(plugin.prefix + "/dem maxPlayer <숫자> - 서버 최대 인원을 설정합니다.");
             return false;
         }
         if (args[0].equalsIgnoreCase("reload")) {
@@ -75,20 +74,6 @@ public class DEMCommand implements CommandExecutor, TabCompleter {
             sender.sendMessage(plugin.prefix + "성공적으로 설정되었습니다.");
             return false;
         }
-        if (args[0].equalsIgnoreCase("maxPlayer")) {
-            if (args.length == 1) {
-                sender.sendMessage(plugin.prefix + "숫자를 입력해주세요.");
-                return false;
-            }
-            try {
-                plugin.config.set("Settings.maxPlayer", Integer.parseInt(args[1]));
-                sender.sendMessage(plugin.prefix + "성공적으로 설정되었습니다.");
-                return false;
-            } catch (NumberFormatException e) {
-                sender.sendMessage(plugin.prefix + "옳바르지 않은 숫자입니다.");
-                return false;
-            }
-        }
         return false;
     }
 
@@ -111,7 +96,7 @@ public class DEMCommand implements CommandExecutor, TabCompleter {
     public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
         if (sender.isOp()) {
             if (args.length == 1) {
-                return Arrays.asList("reload", "join", "quit", "motd1", "motd2", "maxPlayer");
+                return Arrays.asList("reload", "join", "quit", "motd1", "motd2");
             }
         }
         return null;
