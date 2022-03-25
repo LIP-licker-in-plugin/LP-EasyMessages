@@ -25,7 +25,7 @@ public class DEMEvent implements Listener {
     @EventHandler
     public void onPing(ServerListPingEvent e) {
         String s1 = plugin.config.getString("Settings.motd1");
-        String s2 = plugin.config.getString("Settings.motd1");
+        String s2 = plugin.config.getString("Settings.motd2");
         s1 = ColorUtils.applyColor(s1.replace("<prefix>", plugin.prefix));
         s2 = ColorUtils.applyColor(s2.replace("<prefix>", plugin.prefix));
         int i = plugin.config.getInt("Settings.maxPlayers");
