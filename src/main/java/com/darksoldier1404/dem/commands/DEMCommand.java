@@ -21,57 +21,57 @@ public class DEMCommand implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
         if (!sender.isOp()) {
-            sender.sendMessage(plugin.prefix + "권한이 없습니다.");
+            sender.sendMessage(plugin.prefix + plugin.lang.get("cmd_msg_permission_deny"));
             return false;
         }
         if (args.length == 0) {
-            sender.sendMessage(plugin.prefix + "/dem reload - 플러그인 콘피그 파일을 리로드 합니다.");
-            sender.sendMessage(plugin.prefix + "/dem join <내용> - 플레이어 접속 메시지를 설정합니다.");
-            sender.sendMessage(plugin.prefix + "/dem quit <내용> - 플레이어 퇴장 메시지를 설정합니다.");
-            sender.sendMessage(plugin.prefix + "/dem motd1 <내용> - 서버 리스트 첫번째 메시지를 설정합니다.");
-            sender.sendMessage(plugin.prefix + "/dem motd2 <내용> - 서버 리스트 두번째 메시지를 설정합니다.");
+            sender.sendMessage(plugin.prefix + plugin.lang.get("cmd_info_reload"));
+            sender.sendMessage(plugin.prefix + plugin.lang.get("cmd_info_join"));
+            sender.sendMessage(plugin.prefix + plugin.lang.get("cmd_info_quit"));
+            sender.sendMessage(plugin.prefix + plugin.lang.get("cmd_info_motd1"));
+            sender.sendMessage(plugin.prefix + plugin.lang.get("cmd_info_motd2"));
             return false;
         }
         if (args[0].equalsIgnoreCase("reload")) {
             plugin.config = ConfigUtils.reloadPluginConfig(plugin, plugin.config);
             plugin.prefix = ColorUtils.applyColor(plugin.config.getString("Settings.prefix"));
-            sender.sendMessage(plugin.prefix + "성공적으로 리로드 되었습니다.");
+            sender.sendMessage(plugin.prefix + plugin.lang.get("cmd_msg_succsfully_reloaded"));
             return false;
         }
         if (args[0].equalsIgnoreCase("join")) {
             if (args.length == 1) {
-                sender.sendMessage(plugin.prefix + "내용을 입력해주세요.");
+                sender.sendMessage(plugin.prefix + plugin.lang.get("cmd_msg_text_required"));
                 return false;
             }
             plugin.config.set("Settings.joinMessage", getText(args, 1));
-            sender.sendMessage(plugin.prefix + "성공적으로 설정되었습니다.");
+            sender.sendMessage(plugin.prefix + plugin.lang.get("cmd_msg_succsfully_set"));
             return false;
         }
         if (args[0].equalsIgnoreCase("quit")) {
             if (args.length == 1) {
-                sender.sendMessage(plugin.prefix + "내용을 입력해주세요.");
+                sender.sendMessage(plugin.prefix + plugin.lang.get("cmd_msg_text_required"));
                 return false;
             }
             plugin.config.set("Settings.quitMessage", getText(args, 1));
-            sender.sendMessage(plugin.prefix + "성공적으로 설정되었습니다.");
+            sender.sendMessage(plugin.prefix + plugin.lang.get("cmd_msg_succsfully_set"));
             return false;
         }
         if (args[0].equalsIgnoreCase("motd1")) {
             if (args.length == 1) {
-                sender.sendMessage(plugin.prefix + "내용을 입력해주세요.");
+                sender.sendMessage(plugin.prefix + plugin.lang.get("cmd_msg_text_required"));
                 return false;
             }
             plugin.config.set("Settings.motd1", getText(args, 1));
-            sender.sendMessage(plugin.prefix + "성공적으로 설정되었습니다.");
+            sender.sendMessage(plugin.prefix + plugin.lang.get("cmd_msg_succsfully_set"));
             return false;
         }
         if (args[0].equalsIgnoreCase("motd2")) {
             if (args.length == 1) {
-                sender.sendMessage(plugin.prefix + "내용을 입력해주세요.");
+                sender.sendMessage(plugin.prefix + plugin.lang.get("cmd_msg_text_required"));
                 return false;
             }
             plugin.config.set("Settings.motd2", getText(args, 1));
-            sender.sendMessage(plugin.prefix + "성공적으로 설정되었습니다.");
+            sender.sendMessage(plugin.prefix + plugin.lang.get("cmd_msg_succsfully_set"));
             return false;
         }
         return false;
