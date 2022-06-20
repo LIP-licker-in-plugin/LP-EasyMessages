@@ -1,4 +1,4 @@
-name:DP-HotTime
+name: DP-EasyMessages
 on:
   push:
 jobs:
