@@ -5,8 +5,10 @@ cmd_info_join: "/dem join <내용> - 플레이어 접속 메시지를 설정합�
 cmd_info_quit: "/dem quit <내용> - 플레이어 퇴장 메시지를 설정합니다."
 cmd_info_motd1: "/dem motd1 <내용> - 서버 리스트 첫번째 메시지를 설정합니다."
 cmd_info_motd2: "/dem motd2 <내용> - 서버 리스트 두번째 메시지를 설정합니다."
-
+cmd_info_title: "/dem title <내용> <소리넘버> - 소리와 함께 서버 멤버에게 타이틀을 띄웁니다."
 cmd_msg_succsfully_reloaded: "성공적으로 리로드 되었습니다."
 cmd_msg_text_required: "내용을 입력해주세요."
 cmd_msg_succsfully_set: "성공적으로 설정되었습니다."
 cmd_msg_permission_deny: "권한이 없습니다."
+
+cmd_to_much_sounds_number: "사운드 넘버가 너무 큽니다!"

@@ -1,8 +1,10 @@
 package com.darksoldier1404.dem.commands;
 
 import com.darksoldier1404.dem.EasyMessages;
+import com.darksoldier1404.dem.func.DEMFunc;
 import com.darksoldier1404.dppc.utils.ColorUtils;
 import com.darksoldier1404.dppc.utils.ConfigUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -30,7 +32,7 @@ public class DEMCommand implements CommandExecutor, TabCompleter {
             sender.sendMessage(plugin.prefix + plugin.lang.get("cmd_info_quit"));
             sender.sendMessage(plugin.prefix + plugin.lang.get("cmd_info_motd1"));
             sender.sendMessage(plugin.prefix + plugin.lang.get("cmd_info_motd2"));
-            return false;
+            sender.sendMessage(plugin.prefix + plugin.lang.get("cmd_info_title"));            return false;
         }
         if (args[0].equalsIgnoreCase("reload")) {
             plugin.config = ConfigUtils.reloadPluginConfig(plugin, plugin.config);
@@ -74,6 +76,22 @@ public class DEMCommand implements CommandExecutor, TabCompleter {
             sender.sendMessage(plugin.prefix + plugin.lang.get("cmd_msg_succsfully_set"));
             return false;
         }
+        if (args[0].equalsIgnoreCase("title")) {
+            if (args.length == 1) {
+                sender.sendMessage(plugin.prefix + plugin.lang.get("cmd_msg_text_required"));
+                return false;
+            }
+            if (args.length == 2) {
+                String title = String.join(" ", args[1]);
+                Bukkit.getOnlinePlayers().forEach(player -> {
+                    player.sendTitle(title, "", 10, 70, 20);
+                    DEMFunc.returnSounds(player, Integer.parseInt(args[2]));
+                });
+                return true;
+            }
+
+        }
+
         return false;
     }
 
