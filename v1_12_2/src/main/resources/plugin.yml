@@ -1,0 +1,8 @@
+name: DP-EasyMessages
+version: 1.0.0.5
+main: com.darksoldier1404.dem.EasyMessages
+authors: [ DEAD_POOLIO_ ]
+depend:
+  - DPP-Core
+commands:
+  dem:
