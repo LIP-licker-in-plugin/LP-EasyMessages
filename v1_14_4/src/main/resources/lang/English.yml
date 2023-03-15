@@ -1,11 +1,11 @@
 Lang: English
 
-cmd_info_reload: "/dem reload - reload plugin config.yml from disk"
-cmd_info_join: "/dem join <내용> - set player join message"
-cmd_info_quit: "/dem quit <내용> - set player leave message"
-cmd_info_motd1: "/dem motd1 <내용> - set server motd message line 1"
-cmd_info_motd2: "/dem motd2 <내용> - set server motd message line 2"
-cmd_info_title: "/dem title <내용> <soundNum> - broadcast member with sound"
+cmd_info_reload: "/lem reload - reload plugin config.yml from disk"
+cmd_info_join: "/lem join <내용> - set player join message"
+cmd_info_quit: "/lem quit <내용> - set player leave message"
+cmd_info_motd1: "/lem motd1 <내용> - set server motd message line 1"
+cmd_info_motd2: "/lem motd2 <내용> - set server motd message line 2"
+cmd_info_title: "/lem title <내용> <soundNum> - broadcast member with sound"
 
 cmd_msg_succsfully_reloaded: "Plugin config.yml reloaded."
 cmd_msg_text_required: "Text required."
