@@ -1,4 +1,4 @@
-name: DP-EasyMessages
+name: LP-EasyMessages
 on:
   push:
 jobs:
